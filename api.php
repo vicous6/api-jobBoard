@@ -1,93 +1,56 @@
 <?php
 
-$con = mysqli_connect("localhost", "root", "", "mydb");
-var_dump($_GET);
+require 'GET/getAllUsers.php';
+require "GET/getAllEnterprises.php";
+require 'GET/getAllJobs.php';
+
+require 'GET/getUserById.php';
+require 'GET/getEnterpriseById.php';
+require 'GET/getJobById.php';
+
+include "getDatabaseInfo.php";
+
+$actual_link = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+// var_dump($actual_link);
+$actual_link = explode("/", $actual_link);
+$actual_link = array_slice($actual_link, 5);
+// var_dump($actual_link);
 
 
-if ($_GET["GET"] == "allUsers") {
 
 
-    if ($con) {
-        // echo ("connexion etablished");
+if (isset($actual_link[0]) && $actual_link[0] == "users") {
 
-        $sql = "select * from user";
-        $result = mysqli_query($con, $sql);
-        if ($result) {
-            $i = 0;
-            while ($row = mysqli_fetch_assoc($result)) {
-
-                $response[$i]["id"] = $row["id"];
-                $response[$i]["username"] = $row["username"];
-                $response[$i]["password"] = $row["password"];
-                $response[$i]["role"] = $row["role"];
-                $response[$i]["first_name"] = $row["first_name"];
-                $response[$i]["last_name"] = $row["last_name"];
-                $response[$i]["phone"] = $row["phone"];
-
-                $i++;
-            }
-            echo json_encode($response, JSON_PRETTY_PRINT);
-            var_dump($response);
-        }
-    }
-
-
+    echo getAllUsers();
 
 }
-
-if ($_GET["GET"] == "allEnterprises") {
-
-    if ($con) {
-        // echo ("connexion etablished");
-
-        $sql = "select * from enterprise";
-        $result = mysqli_query($con, $sql);
-        if ($result) {
-            $i = 0;
-            while ($row = mysqli_fetch_assoc($result)) {
-
-                $response[$i]["id"] = $row["id"];
-                $response[$i]["name"] = $row["name"];
-                $response[$i]["description"] = $row["description"];
-                $response[$i]["sector"] = $row["sector"];
-
-
-                $i++;
-            }
-            echo json_encode($response, JSON_PRETTY_PRINT);
-            var_dump($response);
-        }
-    }
+if (isset($actual_link[0]) && $actual_link[0] == "user" && isset($actual_link[1])) {
+    echo getUserById($actual_link[1]);
 }
 
-if ($_GET["GET"] == "allJobs") {
-    if ($con) {
-
-        $sql = "select * from job";
-        $result = mysqli_query($con, $sql);
-        if ($result) {
-            $i = 0;
-            while ($row = mysqli_fetch_assoc($result)) {
-
-                $response[$i]["id"] = $row["id"];
-                $response[$i]["name"] = $row["name"];
-                $response[$i]["description"] = $row["description"];
-                $response[$i]["status"] = $row["status"];
-                $response[$i]["workplace"] = $row["workplace"];
-                $response[$i]["wages"] = $row["wages"];
-                $response[$i]["working_time"] = $row["working_time"];
-                $response[$i]["location"] = $row["location"];
-                $response[$i]["short_description"] = $row["short_description"];
 
 
 
-                $i++;
-            }
-            echo json_encode($response, JSON_PRETTY_PRINT);
-            var_dump($response);
-        }
-    }
+if (isset($actual_link[0]) && $actual_link[0] == "enterprises") {
+
+    echo getAllEnterprises();
 }
+if (isset($actual_link[0]) && $actual_link[0] == "enterprise" && isset($actual_link[1])) {
+    echo getEnterpriseById($actual_link[1]);
+}
+
+
+
+
+if (isset($actual_link[0]) && $actual_link[0] == "jobs") {
+    echo getAllJobs();
+}
+if (isset($actual_link[0]) && $actual_link[0] == "job" && isset($actual_link[1])) {
+    echo getJobById($actual_link[1]);
+}
+
+
+
 
 
 
