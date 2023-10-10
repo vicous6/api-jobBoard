@@ -1,49 +1,49 @@
 <?php
+require "autoload.php";
 
-require 'GET/getAllUsers.php';
-require "GET/getAllEnterprises.php";
-require 'GET/getAllJobs.php';
-
-require 'GET/getUserById.php';
-require 'GET/getEnterpriseById.php';
-require 'GET/getJobById.php';
-
-include "getDatabaseInfo.php";
-
-$actual_link = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-// var_dump($actual_link);
-$actual_link = explode("/", $actual_link);
-$actual_link = array_slice($actual_link, 5);
-var_dump($actual_link);
+$URL = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$URL = explode("/", $URL);
+$URL = array_slice($URL, 5);
+var_dump($URL);
 
 
 
 
-if (isset($actual_link[0]) && $actual_link[0] == "users") {
+if (isset($URL[0]) && $URL[0] == "users") {
     echo getAllUsers();
 }
-if (isset($actual_link[0]) && $actual_link[0] == "user" && isset($actual_link[1])) {
-    echo getUserById($actual_link[1]);
+if (isset($URL[0]) && $URL[0] == "user" && isset($URL[1])) {
+    echo getUserById($URL[1]);
+}
+if (isset($URL[0]) && $URL[0] == "deleteUser" && isset($URL[1])) {
+    echo deleteUserById($URL[1]);
 }
 
 
 
 
-if (isset($actual_link[0]) && $actual_link[0] == "enterprises") {
+if (isset($URL[0]) && $URL[0] == "enterprises") {
     echo getAllEnterprises();
 }
-if (isset($actual_link[0]) && $actual_link[0] == "enterprise" && isset($actual_link[1])) {
-    echo getEnterpriseById($actual_link[1]);
+if (isset($URL[0]) && $URL[0] == "enterprise" && isset($URL[1])) {
+    echo getEnterpriseById($URL[1]);
+}
+if (isset($URL[0]) && $URL[0] == "deleteEnterprise" && isset($URL[1])) {
+    echo deleteEnterpriseById($URL[1]);
 }
 
 
 
 
-if (isset($actual_link[0]) && $actual_link[0] == "jobs") {
+if (isset($URL[0]) && $URL[0] == "jobs") {
     echo getAllJobs();
 }
-if (isset($actual_link[0]) && $actual_link[0] == "job" && isset($actual_link[1])) {
-    echo getJobById($actual_link[1]);
+if (isset($URL[0]) && $URL[0] == "job" && isset($URL[1])) {
+    echo getJobById($URL[1]);
+}
+
+if (isset($URL[0]) && $URL[0] == "deleteJob" && isset($URL[1])) {
+    echo deleteJobById($URL[1]);
 }
 
 
