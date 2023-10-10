@@ -24,6 +24,7 @@ function getAllUsers()
 
                 $i++;
             }
+            var_dump($response);
             return json_encode($response);
 
         }
