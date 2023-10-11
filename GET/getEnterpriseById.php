@@ -4,11 +4,7 @@
 function getEnterpriseById($id)
 {
     $info = getDatabaseInfo();
-    // $con = mysqli_connect($info["host"], $info["user"], $info["password"], $info["db_name"]);
     $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
-
-
-
     $query = $dbh->prepare("SELECT * FROM enterprise WHERE id=$id");
     $parameters = [];
 
