@@ -5,24 +5,22 @@ function deleteApplyListsByJobId($id)
     // a gerer : problème de foreign key a la suppression
     // delete jobs+ delete+applylist
     $info = getDatabaseInfo();
-    $con = mysqli_connect($info["host"], $info["user"], $info["password"], $info["db_name"]);
-    if ($con) {
+    $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
+    $query = $dbh->prepare("DELETE FROM applyList WHERE job_id=$id");
 
-        $sql = "delete from applyList where job_id=" . $id;
-        try {
-            $result = mysqli_query($con, $sql);
-
-            if (mysqli_affected_rows($con) == 0) {
+    $parameters = [];
+    try {
 
 
-                return "Rien a supprimer ici";
-            }
-        } catch (Exception $e) {
-            return "erreur de foreign key surement";
+        $query->execute($parameters);
+        $count = $query->rowCount();
+        if ($count == 1) {
+
+            return "suppression effectué";
+        } else {
+            return "rien ici";
         }
-
-        return "suppression(s) efectuée";
-
-
+    } catch (PDOException $e) {
+        die('Error' . $e->getMessage());
     }
 }

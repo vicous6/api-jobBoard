@@ -4,42 +4,52 @@ function deleteEnterpriseById($id)
 {
 
     // delete tout les users associée a l'entreprise
+    try {
 
-    $users = json_decode(getUsersByEnterpriseId($id));
+        $users = json_decode(getUsersByEnterpriseId($id));
+        if ($users != null) {
+            for ($i = 0; $i < count($users); $i++) {
 
+                deleteUserById($users[$i]->id);
+            }
 
+        }
 
-    for ($i = 0; $i < count($users); $i++) {
-
-        deleteUserById($users[$i]->id);
+    } catch (PDOException $e) {
+        // $error = $e;
     }
+
     // delete tout les jobs associée a l'entreprise
-    $jobs = json_decode(getJobsByEnterpriseId($id));
-    for ($i = 0; $i < count($jobs); $i++) {
+    try {
 
-        deleteJobById($jobs[$i]->id);
+        $jobs = json_decode(getJobsByEnterpriseId($id));
+        if ($users != null) {
+            for ($i = 0; $i < count($jobs); $i++) {
+
+                deleteJobById($jobs[$i]->id);
+            }
+        }
+    } catch (PDOException $e) {
+        $error = $e;
     }
-
 
 
     $info = getDatabaseInfo();
-    $con = mysqli_connect($info["host"], $info["user"], $info["password"], $info["db_name"]);
-    if ($con) {
+    $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
+    $query = $dbh->prepare("DELETE FROM enterprise WHERE id=$id");
 
-        $sql = "delete from enterprise where id=" . $id;
-        try {
-            $result = mysqli_query($con, $sql);
+    $parameters = [];
+    try {
 
-            if (mysqli_affected_rows($con) == 0) {
+        $query->execute($parameters);
+        $count = $query->rowCount();
+        if ($count == 1) {
 
-                return "Rien a supprimer ici";
-
-            }
-        } catch (Exception $e) {
-            return "erreur de foreign key surement";
+            return "suppression effectué";
+        } else {
+            return "rien ici";
         }
-
-        return "suppression efectuée";
-
+    } catch (PDOException $e) {
+        die('Error' . $e->getMessage());
     }
 }

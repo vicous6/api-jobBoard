@@ -11,21 +11,21 @@ function deleteJobById($id)
 
 
     $info = getDatabaseInfo();
-    $con = mysqli_connect($info["host"], $info["user"], $info["password"], $info["db_name"]);
-    if ($con) {
+    $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
+    $query = $dbh->prepare("DELETE FROM job WHERE id=$id");
 
-        $sql = "delete from job where id=" . $id;
-        try {
-            $result = mysqli_query($con, $sql);
+    $parameters = [];
+    try {
 
-            if (mysqli_affected_rows($con) == 0) {
+        $query->execute($parameters);
+        $count = $query->rowCount();
+        if ($count == 1) {
 
-                return "Rien a supprimer ici";
-
-            }
-        } catch (Exception $e) {
-            return "erreur de foreign key surement";
+            return "suppression effectué";
+        } else {
+            return "rien ici";
         }
-        return "suppression efectuée";
+    } catch (PDOException $e) {
+        die('Error' . $e->getMessage());
     }
 }
