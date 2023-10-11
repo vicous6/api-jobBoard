@@ -10,7 +10,7 @@ function getUsersByEnterpriseId($enterprise_id)
         $result = mysqli_query($con, $sql);
         $row = mysqli_fetch_assoc($result);
         if ($result) {
-            // header("Content-Type: JSON");
+
             $response[0]["id"] = $row["id"];
             $response[0]["username"] = $row["username"];
             $response[0]["password"] = $row["password"];
