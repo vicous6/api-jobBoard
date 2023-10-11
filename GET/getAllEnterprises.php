@@ -5,31 +5,24 @@ function getAllEnterprises()
 {
 
     $info = getDatabaseInfo();
-    $con = mysqli_connect($info["host"], $info["user"], $info["password"], $info["db_name"]);
-    if ($con) {
-
-        $sql = "select * from enterprise";
-        $result = mysqli_query($con, $sql);
-        if ($result) {
-            $i = 0;
-            while ($row = mysqli_fetch_assoc($result)) {
-
-                $response[$i]["id"] = $row["id"];
-                $response[$i]["name"] = $row["name"];
-                $response[$i]["description"] = $row["description"];
-                $response[$i]["sector"] = $row["sector"];
+    // $con = mysqli_connect($info["host"], $info["user"], $info["password"], $info["db_name"]);
+    $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
 
 
-                $i++;
-            }
-            if (isset($response)) {
 
-                return json_encode($response);
+    $query = $dbh->prepare("SELECT * FROM enterprise");
+    $parameters = [];
 
-            } else {
-                return "Il n'y a rien ici";
-            }
+    $query->execute($parameters);
 
-        }
+    $user = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    if ($user == []) {
+
+        return "rien ici";
+
+    } else {
+
+        return json_encode($user);
     }
 }

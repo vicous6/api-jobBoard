@@ -19,6 +19,7 @@ function getUserById($id)
     if ($user == []) {
 
         return "rien ici";
+
     } else {
 
         return json_encode($user);

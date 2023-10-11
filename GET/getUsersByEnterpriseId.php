@@ -2,31 +2,27 @@
 
 function getUsersByEnterpriseId($enterprise_id)
 {
+
     $info = getDatabaseInfo();
-    $con = mysqli_connect($info["host"], $info["user"], $info["password"], $info["db_name"]);
-    if ($con) {
+    // $con = mysqli_connect($info["host"], $info["user"], $info["password"], $info["db_name"]);
+    $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
 
-        $sql = "select * from user where enterprise_id=" . $enterprise_id;
-        $result = mysqli_query($con, $sql);
-        $row = mysqli_fetch_assoc($result);
-        if ($result) {
 
-            $response[0]["id"] = $row["id"];
-            $response[0]["username"] = $row["username"];
-            $response[0]["password"] = $row["password"];
-            $response[0]["role"] = $row["role"];
-            $response[0]["first_name"] = $row["first_name"];
-            $response[0]["last_name"] = $row["last_name"];
-            $response[0]["phone"] = $row["phone"];
-            $response[0]["enterprise_id"] = $row["enterprise_id"];
-            if (isset($response)) {
 
-                return json_encode($response);
+    $query = $dbh->prepare("SELECT * FROM user WHERE enterprise_id=$enterprise_id");
+    $parameters = [];
 
-            } else {
-                return "Il n'y a rien ici";
-            }
+    $query->execute($parameters);
 
-        }
+    $users = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    if ($users == []) {
+
+        return "rien ici";
+
+    } else {
+
+        return json_encode($users);
     }
+
 }

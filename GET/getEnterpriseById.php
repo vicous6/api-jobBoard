@@ -4,26 +4,24 @@
 function getEnterpriseById($id)
 {
     $info = getDatabaseInfo();
-    $con = mysqli_connect($info["host"], $info["user"], $info["password"], $info["db_name"]);
-    if ($con) {
+    // $con = mysqli_connect($info["host"], $info["user"], $info["password"], $info["db_name"]);
+    $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
 
-        $sql = "select * from enterprise where id=" . $id;
-        $result = mysqli_query($con, $sql);
-        $row = mysqli_fetch_assoc($result);
-        if ($result) {
-            // header("Content-Type: JSON");
-            $response[0]["id"] = $row["id"];
-            $response[0]["name"] = $row["name"];
-            $response[0]["description"] = $row["description"];
-            $response[0]["sector"] = $row["sector"];
-            if (isset($response)) {
 
-                return json_encode($response);
 
-            } else {
-                return "Il n'y a rien ici";
-            }
+    $query = $dbh->prepare("SELECT * FROM enterprise WHERE id=$id");
+    $parameters = [];
 
-        }
+    $query->execute($parameters);
+
+    $user = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    if ($user == []) {
+
+        return "rien ici";
+
+    } else {
+
+        return json_encode($user);
     }
 }

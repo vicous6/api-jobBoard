@@ -4,33 +4,27 @@
 function getJobById($id)
 {
     $info = getDatabaseInfo();
-    $con = mysqli_connect($info["host"], $info["user"], $info["password"], $info["db_name"]);
-    if ($con) {
+    // $con = mysqli_connect($info["host"], $info["user"], $info["password"], $info["db_name"]);
+    $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
 
-        $sql = "select * from job where id=" . $id;
-        $result = mysqli_query($con, $sql);
-        $row = mysqli_fetch_assoc($result);
-        if ($result) {
-            // header("Content-Type: JSON");
 
-            $response[0]["id"] = $row["id"];
-            $response[0]["name"] = $row["name"];
-            $response[0]["description"] = $row["description"];
-            $response[0]["status"] = $row["status"];
-            $response[0]["workplace"] = $row["workplace"];
-            $response[0]["wages"] = $row["wages"];
-            $response[0]["working_time"] = $row["working_time"];
-            $response[0]["location"] = $row["location"];
-            $response[0]["short_description"] = $row["short_description"];
-            $response[0]["enterprise_id"] = $row["enterprise_id"];
-            if (isset($response)) {
 
-                return json_encode($response);
+    $query = $dbh->prepare("SELECT * FROM job WHERE id=$id");
+    $parameters = [];
 
-            } else {
-                return "Il n'y a rien ici";
-            }
+    $query->execute($parameters);
 
-        }
+    $user = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    if ($user == []) {
+
+        return "rien ici";
+
+    } else {
+
+        return json_encode($user);
     }
+
+
+
 }

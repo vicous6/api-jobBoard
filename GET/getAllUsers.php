@@ -4,38 +4,26 @@
 function getAllUsers()
 {
     $info = getDatabaseInfo();
-    $con = mysqli_connect($info["host"], $info["user"], $info["password"], $info["db_name"]);
-    if ($con) {
+    // $con = mysqli_connect($info["host"], $info["user"], $info["password"], $info["db_name"]);
+    $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
 
 
-        $sql = "select * from user";
-        $result = mysqli_query($con, $sql);
-        if ($result) {
-            $i = 0;
-            while ($row = mysqli_fetch_assoc($result)) {
 
-                $response[$i]["id"] = $row["id"];
-                $response[$i]["username"] = $row["username"];
-                $response[$i]["password"] = $row["password"];
-                $response[$i]["role"] = $row["role"];
-                $response[$i]["first_name"] = $row["first_name"];
-                $response[$i]["last_name"] = $row["last_name"];
-                $response[$i]["phone"] = $row["phone"];
-                $response[$i]["enterprise_id"] = $row["enterprise_id"];
+    $query = $dbh->prepare("SELECT * FROM user");
+    $parameters = [];
 
-                $i++;
-            }
-            if (isset($response)) {
+    $query->execute($parameters);
 
-                return json_encode($response);
+    $user = $query->fetchAll(PDO::FETCH_ASSOC);
 
-            } else {
-                return "Il n'y a rien ici";
-            }
+    if ($user == []) {
 
-        }
+        return "rien ici";
+
+    } else {
+
+        return json_encode($user);
     }
-
 
 
 }
