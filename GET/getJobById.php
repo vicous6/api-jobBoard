@@ -22,7 +22,14 @@ function getJobById($id)
             $response[0]["working_time"] = $row["working_time"];
             $response[0]["location"] = $row["location"];
             $response[0]["short_description"] = $row["short_description"];
-            return json_encode($response);
+            $response[0]["enterprise_id"] = $row["enterprise_id"];
+            if (isset($response)) {
+
+                return json_encode($response);
+
+            } else {
+                return "Il n'y a rien ici";
+            }
 
         }
     }

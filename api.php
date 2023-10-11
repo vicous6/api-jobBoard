@@ -42,9 +42,28 @@ if (isset($URL[0]) && $URL[0] == "job" && isset($URL[1])) {
     echo getJobById($URL[1]);
 }
 
-if (isset($URL[0]) && $URL[0] == "deleteJob" && isset($URL[1])) {
+if (isset($URL[0]) && $URL[0] == "deleteJobById" && isset($URL[1])) {
     echo deleteJobById($URL[1]);
 }
+
+
+
+
+if (isset($URL[0]) && $URL[0] == "applyListByJobId" && isset($URL[1])) {
+    echo getApplyListsByJobId($URL[1]);
+}
+
+
+
+
+// if (isset($URL[0]) && $URL[0] == "applyLists" && isset($URL[1])) {
+//     // echo getJobById($URL[1]);
+// }
+
+// if (isset($URL[0]) && $URL[0] == "applyLists" && isset($URL[1])) {
+//     // echo deleteJobById($URL[1]);
+// }
+
 
 
 

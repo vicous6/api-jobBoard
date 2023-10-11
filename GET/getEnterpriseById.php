@@ -16,7 +16,13 @@ function getEnterpriseById($id)
             $response[0]["name"] = $row["name"];
             $response[0]["description"] = $row["description"];
             $response[0]["sector"] = $row["sector"];
-            return json_encode($response);
+            if (isset($response)) {
+
+                return json_encode($response);
+
+            } else {
+                return "Il n'y a rien ici";
+            }
 
         }
     }

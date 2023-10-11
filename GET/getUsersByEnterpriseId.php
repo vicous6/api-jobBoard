@@ -1,13 +1,12 @@
 <?php
 
-
-function getUserById($id)
+function getUsersByEnterpriseId($enterprise_id)
 {
     $info = getDatabaseInfo();
     $con = mysqli_connect($info["host"], $info["user"], $info["password"], $info["db_name"]);
     if ($con) {
 
-        $sql = "select * from user where id=" . $id;
+        $sql = "select * from user where enterprise_id=" . $enterprise_id;
         $result = mysqli_query($con, $sql);
         $row = mysqli_fetch_assoc($result);
         if ($result) {

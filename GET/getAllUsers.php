@@ -21,11 +21,17 @@ function getAllUsers()
                 $response[$i]["first_name"] = $row["first_name"];
                 $response[$i]["last_name"] = $row["last_name"];
                 $response[$i]["phone"] = $row["phone"];
+                $response[$i]["enterprise_id"] = $row["enterprise_id"];
 
                 $i++;
             }
-            var_dump($response);
-            return json_encode($response);
+            if (isset($response)) {
+
+                return json_encode($response);
+
+            } else {
+                return "Il n'y a rien ici";
+            }
 
         }
     }

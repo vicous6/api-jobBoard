@@ -22,13 +22,19 @@ function getAllJobs()
                 $response[$i]["working_time"] = $row["working_time"];
                 $response[$i]["location"] = $row["location"];
                 $response[$i]["short_description"] = $row["short_description"];
+                $response[$i]["enterprise_id"] = $row["enterprise_id"];
 
 
 
                 $i++;
             }
-            return json_encode($response);
-            // var_dump($response);
+            if (isset($response)) {
+
+                return json_encode($response);
+
+            } else {
+                return "Il n'y a rien ici";
+            }
         }
     }
 }
