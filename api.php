@@ -7,7 +7,8 @@ $URL = array_slice($URL, 5);
 // var_dump($URL);
 
 
-
+// var_dump($_POST);
+// die;
 
 if (isset($URL[0]) && $URL[0] == "users") {
     echo getAllUsers();
@@ -51,6 +52,12 @@ if (isset($URL[0]) && $URL[0] == "deleteJobById" && isset($URL[1])) {
 
 if (isset($URL[0]) && $URL[0] == "applyListByJobId" && isset($URL[1])) {
     echo getApplyListsByJobId($URL[1]);
+}
+
+// POST
+
+if (isset($URL[0]) && $URL[0] == "createUser") {
+    echo createUser($_POST);
 }
 
 
