@@ -4,7 +4,7 @@ require "autoload.php";
 $URL = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $URL = explode("/", $URL);
 $URL = array_slice($URL, 5);
-var_dump($URL);
+// var_dump($URL);
 
 
 
