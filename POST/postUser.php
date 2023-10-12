@@ -25,6 +25,8 @@ function createUser($post)
     try {
 
         $query->execute($parameters);
+        echo "ca marche";
+
     } catch (Exception $e) {
 
         echo "raté ca marche pas";

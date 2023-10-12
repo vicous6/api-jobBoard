@@ -60,6 +60,10 @@ if (isset($URL[0]) && $URL[0] == "createUser") {
     echo createUser($_POST);
 }
 
+if (isset($URL[0]) && $URL[0] == "createEnterprise") {
+    echo createEnterprise($_POST);
+}
+
 
 
 

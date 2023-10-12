@@ -24,3 +24,5 @@ require 'GET/getAllApplyListsByJobId.php';
 require "getDatabaseInfo.php";
 
 require "POST/postUser.php";
+require "POST/postJob.php";
+require "POST/postEnterprise.php";
