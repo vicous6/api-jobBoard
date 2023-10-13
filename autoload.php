@@ -25,4 +25,9 @@ require "getDatabaseInfo.php";
 
 require "POST/postUser.php";
 require "POST/postJob.php";
+require "POST/postApplyList.php";
 require "POST/postEnterprise.php";
+
+require "UPDATE/updateJob.php";
+require "UPDATE/updateEnterprise.php";
+require "UPDATE/updateUser.php";

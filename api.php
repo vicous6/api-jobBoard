@@ -63,6 +63,16 @@ if (isset($URL[0]) && $URL[0] == "createUser") {
 if (isset($URL[0]) && $URL[0] == "createEnterprise") {
     echo createEnterprise($_POST);
 }
+if (isset($URL[0]) && $URL[0] == "createJob") {
+    echo createJob($_POST);
+}
+if (isset($URL[0]) && $URL[0] == "createApplyList") {
+    echo createApplyList($_POST);
+}
+
+if (isset($URL[0]) && $URL[0] == "modifyJob") {
+    echo updateJob($_POST);
+}
 
 
 

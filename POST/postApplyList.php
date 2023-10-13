@@ -1,20 +1,22 @@
 <?php
 
 
-function createEnterprise($post)
+function createApplyList($post)
 {
+    date_default_timezone_set('UTC');
     var_dump($post);
     $info = getDatabaseInfo();
     $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
 
     $query = $dbh->prepare("INSERT INTO 
-    enterprise (id, name, description,sector) 
-    VALUES (null, :name, :description, :sector)");
+    applylist (job_id, user_id, message,date) 
+    VALUES (:job_id, :user_id, :message, :date)");
 
     $parameters = [
-        "name" => $post["name"],
-        "description" => $post["description"],
-        "sector" => $post["sector"]
+        "job_id" => $post["job_id"],
+        "user_id" => $post["user_id"],
+        "message" => $post["message"],
+        "date" => date('m/d/Y h:i:s a', time())
     ];
 
     try {
@@ -22,7 +24,7 @@ function createEnterprise($post)
         $query->execute($parameters);
         echo "ca marche";
     } catch (Exception $e) {
-
+        var_dump($e);
         echo "raté ca marche pas";
     }
 }
