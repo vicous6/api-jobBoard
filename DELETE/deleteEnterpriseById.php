@@ -7,6 +7,7 @@ function deleteEnterpriseById($id)
     try {
 
         $users = json_decode(getUsersByEnterpriseId($id));
+        var_dump($users);
         if ($users != null) {
             for ($i = 0; $i < count($users); $i++) {
 

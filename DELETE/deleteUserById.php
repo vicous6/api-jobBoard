@@ -2,6 +2,9 @@
 
 function deleteUserById($id)
 {
+
+    deleteApplyListsByUserId($id);
+
     $info = getDatabaseInfo();
     $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
     $query = $dbh->prepare("DELETE FROM user WHERE id=$id");
