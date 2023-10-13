@@ -21,6 +21,7 @@ function updateUser($post)
     );
 
     $parameters = [
+        "id" => $post["id"],
         "username" => $post["username"],
         "password" => $post["password"],
         "role" => $post["role"],
@@ -29,7 +30,6 @@ function updateUser($post)
         "last_name" => $post["last_name"],
         "phone" => $post["phone"],
         "enterprise_id" => $post["enterprise_id"]
-
     ];
 
     try {
