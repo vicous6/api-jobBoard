@@ -1,11 +1,11 @@
 <?php
 
 
-function getUserById($id)
+function getTokenByUserId($id)
 {
     $info = getDatabaseInfo();
     $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
-    $query = $dbh->prepare("SELECT * FROM user WHERE id=$id");
+    $query = $dbh->prepare("SELECT token FROM user WHERE id=$id");
     $parameters = [];
 
     $query->execute($parameters);

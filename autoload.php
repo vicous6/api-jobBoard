@@ -31,3 +31,18 @@ require "POST/postEnterprise.php";
 require "UPDATE/updateJob.php";
 require "UPDATE/updateEnterprise.php";
 require "UPDATE/updateUser.php";
+
+require "authentication/cryptPassword.php";
+require "authentication/generateToken.php";
+require "GET/getTokenByUserId.php";
+
+
+// a faire
+
+require 'UPDATE/updateTokenByUserId.php';
+require "UPDATE/updatePassword.php";
+require "UPDATE/updateToken.php";
+require "authentication/validation/loginValidation.php";
+require "authentication/validation/registerValidation.php";
+require "authentication/isTokenValid.php";
+require "authentication/whatRoleForThatToken.php";
