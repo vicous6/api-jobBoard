@@ -13,9 +13,9 @@ function createUser($post)
     if ($post["enterprise_id"] == "") {
         $post["enterprise_id"] = null;
     }
-    if ($post["token"] == "") {
-        $post["token"] = null;
-    }
+    // if ($post["token"] == "") {
+    //     $post["token"] = null;
+    // }
     $parameters = [
         "username" => $post["username"],
         "password" => cryptPassword($post["password"]),
@@ -25,7 +25,7 @@ function createUser($post)
         "last_name" => $post["last_name"],
         "phone" => $post["phone"],
         "enterprise_id" => $post["enterprise_id"],
-        "token" => $post["token"]
+        // "token" => $post["token"]
 
     ];
 

@@ -1,5 +1,14 @@
 <?php
-function isTokenValid($form)
+function isTokenValid($token)
 {
-    return true;
+
+    if (getUserByToken($token)) {
+
+        return true;
+
+    } else {
+
+        return false;
+    }
+
 }

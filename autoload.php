@@ -49,3 +49,4 @@ require "authentication/validation/loginValidation.php";
 require "authentication/validation/registerValidation.php";
 require "authentication/isTokenValid.php";
 require "authentication/whatRoleForThatToken.php";
+require "DELETE/deleteToken.php";

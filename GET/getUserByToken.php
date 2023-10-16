@@ -7,7 +7,7 @@ function getUserByToken(string $token)
 
     $info = getDatabaseInfo();
     $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
-    $query = $dbh->prepare("SELECT * FROM user WHERE username='$token'");
+    $query = $dbh->prepare("SELECT * FROM user WHERE token='$token'");
     var_dump($query);
     $parameters = [];
 
@@ -16,7 +16,7 @@ function getUserByToken(string $token)
 
     if ($user == []) {
 
-        return "rien ici";
+        return false;
 
     } else {
 
