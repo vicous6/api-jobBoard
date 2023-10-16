@@ -32,10 +32,10 @@ function createUser($post)
     try {
 
         $query->execute($parameters);
-        echo "ca marche";
+        echo true;
 
     } catch (Exception $e) {
-        var_dump($e);
-        echo "raté ca marche pas";
+        // var_dump($e);
+        echo false;
     }
 }

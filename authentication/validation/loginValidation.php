@@ -2,5 +2,7 @@
 
 function loginValidation($form)
 {
+
+
     return true;
 }

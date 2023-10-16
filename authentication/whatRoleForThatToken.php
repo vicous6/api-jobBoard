@@ -1,5 +1,10 @@
 <?php
 function whatRoleForThatToken($token)
 {
-    return true;
+
+    $user = json_decode(getUserByToken($token));
+    var_dump("user")
+    $role = $user["role"];
+
+    return $role;
 }

@@ -1,22 +1,25 @@
 <?php
 
 
-function getTokenByUserId($id)
+function getUserByToken(string $token)
 {
+
+
     $info = getDatabaseInfo();
     $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
-    $query = $dbh->prepare("SELECT token FROM user WHERE id=$id");
+    $query = $dbh->prepare("SELECT * FROM user WHERE username='$token'");
+    var_dump($query);
     $parameters = [];
 
     $query->execute($parameters);
-    $token = $query->fetchAll(PDO::FETCH_ASSOC);
+    $user = $query->fetchAll(PDO::FETCH_ASSOC);
 
-    if ($token == []) {
+    if ($user == []) {
 
         return "rien ici";
 
     } else {
 
-        return json_encode($token);
+        return json_encode($user);
     }
 }

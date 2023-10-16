@@ -35,13 +35,16 @@ require "UPDATE/updateUser.php";
 require "authentication/cryptPassword.php";
 require "authentication/generateToken.php";
 require "GET/getTokenByUserId.php";
+require "GET/getUserByUsername.php";
 
 
 // a faire
 
-require 'UPDATE/updateTokenByUserId.php';
+
 require "UPDATE/updatePassword.php";
 require "UPDATE/updateToken.php";
+
+require "GET/getUserByToken.php";
 require "authentication/validation/loginValidation.php";
 require "authentication/validation/registerValidation.php";
 require "authentication/isTokenValid.php";
