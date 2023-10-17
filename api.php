@@ -133,10 +133,10 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
 
             if (loginValidation($_POST)) {
                 // var_dump($_POST);
-                $currentUser = json_decode([getUserByUsername($_POST["username"])]);
+                $currentUser = json_decode(getUserByUsername($_POST["username"]));
                 // var_dump($currentUser);
-                echo json_encode(updateToken($currentUser[0]->id));
-
+                $value = json_encode(updateToken($currentUser[0]->id));
+                echo $value;
             } else {
                 echo json_encode("erreur dans le formulaire");
             }
