@@ -2,7 +2,7 @@
 
 function loginValidation($form)
 {
-    var_dump(json_encode($form));
+    // var_dump(json_encode($form));
     if (
         isset($form["username"]) &&
         $form["username"] != null &&
