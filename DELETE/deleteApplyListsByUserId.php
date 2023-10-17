@@ -20,6 +20,6 @@ function deleteApplyListsByUserId($id)
             return "rien ici";
         }
     } catch (PDOException $e) {
-        die('Error' . $e->getMessage());
+        return false;
     }
 }

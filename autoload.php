@@ -40,7 +40,7 @@ require "GET/getUserByEmail.php";
 
 
 // a faire
-
+require "POST/postUserPromoter.php";
 
 require "UPDATE/updatePassword.php";
 require "UPDATE/updateToken.php";
@@ -51,3 +51,4 @@ require "authentication/validation/registerValidation.php";
 require "authentication/isTokenValid.php";
 require "authentication/whatRoleForThatToken.php";
 require "DELETE/deleteToken.php";
+require "authentication/validation/specialChars.php";

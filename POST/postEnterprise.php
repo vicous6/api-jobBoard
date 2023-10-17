@@ -20,9 +20,9 @@ function createEnterprise($post)
     try {
 
         $query->execute($parameters);
-        echo "ca marche";
+        return true;
     } catch (Exception $e) {
 
-        echo "raté ca marche pas";
+        return false;
     }
 }

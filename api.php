@@ -82,8 +82,13 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
         if (isset($URL[0]) && $URL[0] == "createUser") {
             echo createUser($_POST);
         }
+
         if (isset($URL[0]) && $URL[0] == "createEnterprise") {
-            echo createEnterprise($_POST);
+            $state = createEnterprise($_POST);
+            if ($state == true) {
+                $userPromoter = createUserPromoter();
+                echo json_encode($userPromoter);
+            }
         }
         if (isset($URL[0]) && $URL[0] == "createJob") {
             echo createJob($_POST);
@@ -108,23 +113,19 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
         // echo getAllUsers();
         // var_dump($_POST);
         // si le form est rempli
-        if (isset($_POST["submit"])) {
 
-            // si le form est rempli
-            if (registerValidation($_POST)) {
-                // si le form est valide
 
-                echo createUser($_POST);
+        // si le form est rempli
+        if (registerValidation($_POST)) {
+            // si le form est valide
 
-            } else {
-                // si le form contient un problème
-                echo "erreur de formulaire";
-            }
-
+            echo createUser($_POST);
 
         } else {
-            echo "pas de formulaire ";
+            // si le form contient un problème
+            echo "erreur de formulaire";
         }
+
 
 
     } else
@@ -136,7 +137,8 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
                 $currentUser = json_decode(getUserByUsername($_POST["username"]));
                 // var_dump($currentUser);
                 $value = updateToken($currentUser[0]->id);
-                echo json_encode($value);
+
+                echo json_encode([$value, $currentUser[0]->role]);
             } else {
                 echo json_encode("erreur dans le formulaire");
             }
