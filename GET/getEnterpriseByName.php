@@ -1,22 +1,20 @@
 <?php
 
 
-function getUserByToken(string $token)
+function getEnterpriseByName($name)
 {
-
-
     $info = getDatabaseInfo();
     $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
-    $query = $dbh->prepare("SELECT * FROM user WHERE token='$token'");
-    // var_dump($query);
+    $query = $dbh->prepare("SELECT * FROM enterprise WHERE name=$name");
     $parameters = [];
 
     $query->execute($parameters);
+
     $user = $query->fetchAll(PDO::FETCH_ASSOC);
 
     if ($user == []) {
 
-        return false;
+        return "rien ici";
 
     } else {
 

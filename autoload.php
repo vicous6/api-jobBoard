@@ -37,7 +37,7 @@ require "authentication/generateToken.php";
 require "GET/getTokenByUserId.php";
 require "GET/getUserByUsername.php";
 require "GET/getUserByEmail.php";
-
+require "GET/getEnterpriseByName.php";
 
 // a faire
 require "POST/postUserPromoter.php";
