@@ -36,19 +36,19 @@ function registerValidation($post)
 
 
 
-        $isUsernameAvailable = json_decode(getUserByUsername($post["username"]));
-        $isEmailAvailable = json_decode(getUserByEmail($post["email"]));
-        if ($post["username"])
+        // $isUsernameAvailable = json_decode(getUserByUsername($post["username"]));
+        // $isEmailAvailable = json_decode(getUserByEmail($post["email"]));
+        // if ($post["username"])
 
-            if ($isUsernameAvailable != null) {
-                return false;
-            }
-        if ($isEmailAvailable != null) {
-            return false;
-        }
+        //     if ($isUsernameAvailable != null) {
+        //         return false;
+        //     }
+        // if ($isEmailAvailable != null) {
+        //     return false;
+        // }
         return true;
     }
 
 
-    return true;
+    return false;
 }
