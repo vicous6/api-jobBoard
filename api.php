@@ -17,14 +17,17 @@ if (isset($headers['Authorization']) && $headers['Authorization'] != null) {
 if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
 
     $role = whatRoleForThatToken($_POST["token"]);
+    $user = json_decode(getUserByToken($_POST["token"]));
     // var_dump($role);
     // roles possible [admin,user,promoter]
 // a faire : restreindre en fonction des roles
-
+    var_dump($user[0]);
 
     // route public
     if ($role == "user") {
-
+        if (isset($URL[0]) && $URL[0] == "applyListByJobId" && isset($URL[1])) {
+            echo getApplyListsByJobId($URL[1]);
+        }
         if (isset($URL[0]) && $URL[0] == "enterprises") {
             echo getAllEnterprises();
         }
@@ -36,6 +39,9 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
         }
         if (isset($URL[0]) && $URL[0] == "job" && isset($URL[1])) {
             echo getJobById($URL[1]);
+        }
+        if (isset($URL[0]) && $URL[0] == "createApplyList") {
+            echo createApplyList($_POST, $user[0]->id);
         }
 
     } else if ($role == "admin") {
@@ -86,7 +92,7 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
         if (isset($URL[0]) && $URL[0] == "createUser") {
             echo createUser($_POST);
         }
-
+        // creer une entreprise + un promorteur , retourne les logs
         if (isset($URL[0]) && $URL[0] == "createEnterprise") {
             $state = createEnterprise($_POST);
 
@@ -111,6 +117,30 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
 
 
 
+    } else if ($role == "promoter") {
+        if (isset($URL[0]) && $URL[0] == "createApplyList") {
+            echo createApplyList($_POST);
+        }
+        if (isset($URL[0]) && $URL[0] == "applyListByJobId" && isset($URL[1])) {
+            echo getApplyListsByJobId($URL[1]);
+        }
+        if (isset($URL[0]) && $URL[0] == "enterprises") {
+            echo getAllEnterprises();
+        }
+        if (isset($URL[0]) && $URL[0] == "enterprise" && isset($URL[1])) {
+            echo getEnterpriseById($URL[1]);
+        }
+        if (isset($URL[0]) && $URL[0] == "jobs") {
+            echo getAllJobs();
+        }
+        if (isset($URL[0]) && $URL[0] == "job" && isset($URL[1])) {
+            echo getJobById($URL[1]);
+        }
+        // pouvoir suplementaire du promoteur
+
+        if (isset($URL[0]) && $URL[0] == "createJob") {
+            echo createJob($_POST);
+        }
     }
 
 

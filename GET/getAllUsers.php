@@ -13,7 +13,7 @@ function getAllUsers()
 
     if ($user == []) {
 
-        return "rien ici";
+        return json_encode("rien ici");
 
     } else {
 

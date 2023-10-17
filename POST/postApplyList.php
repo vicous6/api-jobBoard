@@ -1,7 +1,7 @@
 <?php
 
 
-function createApplyList($post)
+function createApplyList($post, $id)
 {
     date_default_timezone_set('UTC');
     var_dump($post);
@@ -14,7 +14,7 @@ function createApplyList($post)
 
     $parameters = [
         "job_id" => $post["job_id"],
-        "user_id" => $post["user_id"],
+        "user_id" => $id,
         "message" => $post["message"],
         "date" => date('m/d/Y h:i:s a', time())
     ];
