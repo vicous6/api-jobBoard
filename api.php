@@ -85,10 +85,15 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
 
         if (isset($URL[0]) && $URL[0] == "createEnterprise") {
             $state = createEnterprise($_POST);
-            if ($state == true) {
-                $userPromoter = createUserPromoter();
-                echo json_encode($userPromoter);
-            }
+
+            // $enterpriseId = getEnterpriseByName();
+
+
+
+            // if ($state == true) {
+            //     $userPromoter = createUserPromoter($_POST[]);
+            //     echo json_encode($userPromoter);
+            // }
         }
         if (isset($URL[0]) && $URL[0] == "createJob") {
             echo createJob($_POST);
