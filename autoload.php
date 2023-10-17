@@ -51,6 +51,8 @@ require "GET/getAllApplyListsByUserId.php";
 require "GET/getUserByToken.php";
 require "authentication/validation/loginValidation.php";
 require "authentication/validation/registerValidation.php";
+require "authentication/validation/createJobValidation.php.php";
+require "authentication/validation/createEnterpriseValidation.php";
 require "authentication/isTokenValid.php";
 require "authentication/whatRoleForThatToken.php";
 require "DELETE/deleteToken.php";

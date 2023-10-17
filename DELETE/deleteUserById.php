@@ -16,11 +16,11 @@ function deleteUserById($id)
         $count = $query->rowCount();
         if ($count == 1) {
 
-            return "suppression effectué";
+            return json_encode("suppression effectué");
         } else {
-            return "rien ici";
+            return json_encode("rien ici");
         }
     } catch (PDOException $e) {
-        die('Error' . $e->getMessage());
+        return json_encode("erorr");
     }
 }

@@ -14,7 +14,7 @@ function createUserPromoter($enterprise_id)
     $email1 = generateToken();
     $email2 = generateToken();
     $email1 .= "@" . $email2 . ".com";
-    // var_dump($email1);
+
     $parameters = [
         "username" => $username,
         "password" => cryptPassword($pass),
@@ -30,7 +30,7 @@ function createUserPromoter($enterprise_id)
 
         $query->execute($parameters);
 
-        return [$username, $pass];
+        return ["usernemae" => $username, "password" => $pass];
     } catch (Exception $e) {
         // var_dump($e);
         return false;

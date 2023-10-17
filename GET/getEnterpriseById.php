@@ -14,7 +14,7 @@ function getEnterpriseById($id)
 
     if ($user == []) {
 
-        return "rien ici";
+        return false;
 
     } else {
 
