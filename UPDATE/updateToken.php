@@ -25,6 +25,6 @@ function updateToken($id)
 
     } catch (Exception $e) {
 
-        return ("raté ca marche pas");
+        return json_encode("raté ca marche pas");
     }
 }
