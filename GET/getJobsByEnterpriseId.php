@@ -10,14 +10,14 @@ function getJobsByEnterpriseId($enterprise_id)
 
     $query->execute($parameters);
 
-    $user = $query->fetchAll(PDO::FETCH_ASSOC);
+    $job = $query->fetchAll(PDO::FETCH_ASSOC);
 
-    if ($user == []) {
+    if ($job == []) {
 
         return "rien ici";
 
     } else {
 
-        return json_encode($user);
+        return json_encode($job);
     }
 }

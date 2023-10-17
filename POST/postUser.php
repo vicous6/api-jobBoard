@@ -7,8 +7,8 @@ function createUser($post)
     $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
 
     $query = $dbh->prepare("INSERT INTO 
-    user (id, username,password,role,email,first_name,last_name,phone,enterprise_id,token) 
-    VALUES (null, :username, :password, :role, :email, :first_name,:last_name,:phone,:enterprise_id,:token)");
+    user (id, username,password,role,email,first_name,last_name,phone,enterprise_id) 
+    VALUES (null, :username, :password, :role, :email, :first_name,:last_name,:phone,:enterprise_id)");
     // var_dump();
     if ($post["enterprise_id"] == "") {
         $post["enterprise_id"] = null;
@@ -16,6 +16,7 @@ function createUser($post)
     // if ($post["token"] == "") {
     //     $post["token"] = null;
     // }
+    var_dump($post);
     $parameters = [
         "username" => $post["username"],
         "password" => cryptPassword($post["password"]),
@@ -29,13 +30,13 @@ function createUser($post)
 
     ];
 
-    try {
+    // try {
+    echo "test";
+    $query->execute($parameters);
+    echo "ca marche";
 
-        $query->execute($parameters);
-        echo true;
-
-    } catch (Exception $e) {
-        // var_dump($e);
-        echo false;
-    }
+    // } catch (Exception $e) {
+    //     // var_dump($e);
+    //     return false;
+    // }
 }

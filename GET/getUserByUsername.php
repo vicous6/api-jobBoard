@@ -16,7 +16,7 @@ function getUserByUsername(string $username)
 
     if ($user == []) {
 
-        return "rien ici";
+        return false;
 
     } else {
 

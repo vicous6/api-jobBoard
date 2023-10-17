@@ -113,8 +113,9 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
             // si le form est rempli
             if (registerValidation($_POST)) {
                 // si le form est valide
-                createUser($_POST);
-                echo "user is created";
+
+                echo createUser($_POST);
+
             } else {
                 // si le form contient un problème
                 echo "erreur de formulaire";
@@ -133,10 +134,11 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
             if (isset($_POST["submit"]) && loginValidation($_POST)) {
                 // var_dump($_POST);
                 $currentUser = json_decode(getUserByUsername($_POST["username"]));
-
+                var_dump($currentUser);
+                // die;
                 echo updateToken($currentUser[0]->id);
             } else {
-                echo "erreur dans le formulaire";
+                echo json_encode("erreur dans le formulaire");
             }
 
 
