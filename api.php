@@ -124,7 +124,7 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
         if (registerValidation($_POST)) {
             // si le form est valide
 
-            echo createUser($_POST);
+            echo json_encode(createUser($_POST));
 
         } else {
             // si le form contient un problème
