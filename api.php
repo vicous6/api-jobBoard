@@ -128,7 +128,7 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
 
         } else {
             // si le form contient un problème
-            echo "erreur de formulaire";
+            echo json_encode("erreur de formulaire");
         }
 
 

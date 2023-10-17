@@ -50,5 +50,5 @@ function registerValidation($post)
     }
 
 
-    return false;
+    return true;
 }
