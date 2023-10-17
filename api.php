@@ -146,7 +146,7 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
 
         } else {
 
-            echo "need to login";
+            echo json_encode("need to login");
         }
 
 
