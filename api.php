@@ -6,8 +6,9 @@ $URL = explode("/", $URL);
 $URL = array_slice($URL, 5);
 // var_dump($_POST);
 // var_dump($URL);
-
+var_dump($headers['Authorization'])
 if (isset($headers['Authorization']) && $headers['Authorization'] != null) {
+
     $_POST["token"] = $headers['Authorization'];
 }
 // var_dump(isTokenValid($_POST["token"]));
