@@ -2,7 +2,7 @@
 
 function loginValidation($form)
 {
-
+    var_dump($form);
     if (
         isset($form["username"]) &&
         $form["username"] != null &&
