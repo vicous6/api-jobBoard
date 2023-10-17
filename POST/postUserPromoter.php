@@ -9,14 +9,14 @@ function createUserPromoter($enterprise_id)
     $query = $dbh->prepare("INSERT INTO 
     user (id, username,password,role,email,first_name,last_name,phone,enterprise_id) 
     VALUES (null, :username, :password, :role, :email, :first_name,:last_name,:phone,:enterprise_id)");
-
+    $username = generateToken();
     $pass = generateToken();
     $email1 = generateToken();
     $email2 = generateToken();
     $email1 .= "@" . $email2 . ".com";
     // var_dump($email1);
     $parameters = [
-        "username" => generateToken(),
+        "username" => $username,
         "password" => cryptPassword($pass),
         "role" => "promoter",
         "email" => $email1,
@@ -30,8 +30,7 @@ function createUserPromoter($enterprise_id)
 
         $query->execute($parameters);
 
-        echo "ca marche";
-
+        return true;
     } catch (Exception $e) {
         // var_dump($e);
         return false;

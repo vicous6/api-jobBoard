@@ -7,7 +7,9 @@ $URL = array_slice($URL, 5);
 // var_dump($_POST);
 // var_dump($URL);
 
-
+if(isset($headers['Authorization']) &&  $headers['Authorization']!= null){
+    $_POST["token"]=$headers['Authorization'];
+}
 // var_dump(isTokenValid($_POST["token"]));
 
 if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
@@ -87,12 +89,12 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
             $state = createEnterprise($_POST);
 
             $enterpriseId = json_decode(getEnterpriseByName($_POST["name"]))[0]->id;
-            var_dump($enterpriseId);
+            // var_dump($enterpriseId);
 
 
             if ($state == true) {
                 $userPromoter = createUserPromoter($enterpriseId);
-                echo json_encode($userPromoter);
+                echo json_encode([json_decode(getEnterpriseByName($_POST["name"]))[0]->]);
             }
         }
         if (isset($URL[0]) && $URL[0] == "createJob") {
