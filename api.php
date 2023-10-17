@@ -4,10 +4,10 @@ require "autoload.php";
 $URL = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $URL = explode("/", $URL);
 $URL = array_slice($URL, 5);
-// var_dump($_POST);
+var_dump($_POST);
 // var_dump($URL);
 
-$_POST = json_decode($_POST);
+
 // var_dump(isTokenValid($_POST["token"]));
 
 if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
