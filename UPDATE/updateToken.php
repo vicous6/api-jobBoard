@@ -21,10 +21,10 @@ function updateToken($id)
     try {
 
         $query->execute($parameters);
-        echo json_encode($token);
+        return $token;
 
     } catch (Exception $e) {
 
-        echo json_encode("raté ca marche pas");
+        return ("raté ca marche pas");
     }
 }
