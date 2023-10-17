@@ -1,0 +1,57 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form onsubmit="return mySubmitFunction(event)">
+
+        <input type="text">
+        <input type="text">
+        <input type="submit">
+    </form>
+</body>
+<script>
+    function mySubmitFunction(e) {
+
+        const form = {
+            username: document.getElementsByTagName("input")[0],
+            password: document.getElementsByTagName("input")[1],
+
+
+        };
+
+        // document.getElementsByTagName("input")[2].addEventListener("submit", (e) => {
+        e.preventDefault();
+        const login = 'http://localhost/api-jobBoard/api.php/login';
+
+        fetch(login, {
+            method: "POST", mode: 'no-cors',
+            headers: {
+
+                Accept: "application/json, text/plain, */*",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                email: form.username.value,
+                password: form.password.value,
+            }),
+        })
+            .then((response) => response.json())
+            .then((data) => console.log(data))
+            .catch((err) => {
+                console.log(err);
+            });
+
+
+    }
+    // );
+
+    // }
+
+</script>
+
+</html>
