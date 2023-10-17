@@ -135,8 +135,8 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
                 // var_dump($_POST);
                 $currentUser = json_decode(getUserByUsername($_POST["username"]));
                 // var_dump($currentUser);
-                $value = json_encode(updateToken($currentUser[0]->id));
-                echo $value;
+                $value = updateToken($currentUser[0]->id);
+                echo json_encode(getAllUsers());
             } else {
                 echo json_encode("erreur dans le formulaire");
             }
