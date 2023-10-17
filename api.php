@@ -13,7 +13,7 @@ $URL = array_slice($URL, 5);
 if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
 
     $role = whatRoleForThatToken($_POST["token"]);
-    var_dump($role);
+    // var_dump($role);
     // roles possible [admin,user,promoter]
 // a faire : restreindre en fonction des roles
 
