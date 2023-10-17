@@ -1,11 +1,12 @@
 <?php
 
 
-function getApplyListsByJobId($id)
+function getApplyListsByUserId($id)
 {
+
     $info = getDatabaseInfo();
     $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
-    $query = $dbh->prepare("SELECT * FROM applyList WHERE job_id=$id");
+    $query = $dbh->prepare("SELECT * FROM applyList WHERE user_id=$id");
     $parameters = [];
 
     $query->execute($parameters);

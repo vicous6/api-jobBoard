@@ -24,7 +24,7 @@ function createApplyList($post, $id)
         $query->execute($parameters);
         echo true;
     } catch (Exception $e) {
-        var_dump($e);
+        // var_dump($e);
         echo false;
     }
 }

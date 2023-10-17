@@ -44,6 +44,9 @@ require "POST/postUserPromoter.php";
 
 require "UPDATE/updatePassword.php";
 require "UPDATE/updateToken.php";
+require "GET/getAllApplyListsByUserId.php";
+
+
 
 require "GET/getUserByToken.php";
 require "authentication/validation/loginValidation.php";
