@@ -9,8 +9,8 @@ function loginValidation($form)
         isset($form["password"]) &&
         $form["password"] != null
     ) {
-        $form["username"] = clean($form["username"]);
-        $form["password"] = clean($form["password"]);
+        // $form["username"] = clean($form["username"]);
+        // $form["password"] = clean($form["password"]);
         // if username exist
         if (getUserByUsername($form["username"])) {
 

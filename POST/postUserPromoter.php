@@ -14,7 +14,7 @@ function createUserPromoter($enterprise_id)
     $email1 = generateToken();
     $email2 = generateToken();
     $email1 .= "@" . $email2 . ".com";
-    var_dump($email1);
+    // var_dump($email1);
     $parameters = [
         "username" => generateToken(),
         "password" => cryptPassword($pass),
@@ -23,7 +23,7 @@ function createUserPromoter($enterprise_id)
         "first_name" => generateToken(),
         "last_name" => generateToken(),
         "phone" => "0606060606",
-        "enterprise_id" => $enterprise_id
+        "enterprise_id" => "" . $enterprise_id . ""
     ];
 
     try {

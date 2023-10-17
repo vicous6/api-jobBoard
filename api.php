@@ -86,14 +86,14 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
         if (isset($URL[0]) && $URL[0] == "createEnterprise") {
             $state = createEnterprise($_POST);
 
-            // $enterpriseId = getEnterpriseByName();
+            $enterpriseId = json_decode(getEnterpriseByName($_POST["name"]))[0]->id;
+            var_dump($enterpriseId);
 
 
-
-            // if ($state == true) {
-            //     $userPromoter = createUserPromoter($_POST[]);
-            //     echo json_encode($userPromoter);
-            // }
+            if ($state == true) {
+                $userPromoter = createUserPromoter($enterpriseId);
+                echo json_encode($userPromoter);
+            }
         }
         if (isset($URL[0]) && $URL[0] == "createJob") {
             echo createJob($_POST);
