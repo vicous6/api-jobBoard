@@ -30,7 +30,7 @@ function createUserPromoter($enterprise_id)
 
         $query->execute($parameters);
 
-        return true;
+        return [$username, $pass];
     } catch (Exception $e) {
         // var_dump($e);
         return false;
