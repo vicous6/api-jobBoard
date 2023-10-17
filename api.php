@@ -4,8 +4,8 @@ require "autoload.php";
 $URL = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $URL = explode("/", $URL);
 $URL = array_slice($URL, 5);
-var_dump($_POST);
-var_dump($URL);
+// var_dump($_POST);
+// var_dump($URL);
 
 
 // var_dump(isTokenValid($_POST["token"]));
@@ -106,7 +106,7 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
     // si route register
     if (isset($URL[0]) && $URL[0] == "register") {
         // echo getAllUsers();
-        var_dump($_POST);
+        // var_dump($_POST);
         // si le form est rempli
         if (isset($_POST["submit"])) {
 
@@ -134,7 +134,7 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
             if (isset($_POST["submit"]) && loginValidation($_POST)) {
                 // var_dump($_POST);
                 $currentUser = json_decode(getUserByUsername($_POST["username"]));
-                var_dump($currentUser);
+                // var_dump($currentUser);
                 // die;
                 echo updateToken($currentUser[0]->id);
             } else {

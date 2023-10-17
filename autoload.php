@@ -36,6 +36,7 @@ require "authentication/cryptPassword.php";
 require "authentication/generateToken.php";
 require "GET/getTokenByUserId.php";
 require "GET/getUserByUsername.php";
+require "GET/getUserByEmail.php";
 
 
 // a faire

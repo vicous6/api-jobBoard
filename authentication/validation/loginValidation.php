@@ -9,21 +9,19 @@ function loginValidation($form)
         isset($form["password"]) &&
         $form["password"] != null
     ) {
-        var_dump($form);
+
         if (getUserByUsername($form["username"])) {
 
             $user = json_decode(getUserByUsername($form["username"]));
-            var_dump($user);
-            var_dump($form["password"]);
-            $res = password_verify($form["password"], $user[0]->password);
-            var_dump($res);
-            die;
+
+            if (password_verify($form["password"], $user[0]->password) == true) {
+
+                return true;
+            }
+
 
         }
-
-
-
-        return true;
+        return false;
 
     }
 

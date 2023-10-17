@@ -31,7 +31,7 @@ function createUser($post)
     ];
 
     // try {
-    echo "test";
+
     $query->execute($parameters);
     echo "ca marche";
 

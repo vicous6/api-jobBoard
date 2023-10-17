@@ -1,13 +1,13 @@
 <?php
 
 
-function getUserByUsername(string $username)
+function getUserByEmail(string $email)
 {
 
 
     $info = getDatabaseInfo();
     $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
-    $query = $dbh->prepare("SELECT * FROM user WHERE username='$username'");
+    $query = $dbh->prepare("SELECT * FROM user WHERE email='$email'");
 
     $parameters = [];
 
