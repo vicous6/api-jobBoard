@@ -131,7 +131,7 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
         // si route login
         if (isset($URL[0]) && $URL[0] == "login") {
 
-            if (isset($_POST["submit"]) && loginValidation($_POST)) {
+            if (loginValidation($_POST)) {
                 // var_dump($_POST);
                 $currentUser = json_decode(getUserByUsername($_POST["username"]));
                 // var_dump($currentUser);
