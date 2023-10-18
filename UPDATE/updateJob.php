@@ -1,6 +1,6 @@
 <?php
 
-function updateJob($post, $id)
+function updateJob($post)
 {
     $info = getDatabaseInfo();
     $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
@@ -20,7 +20,7 @@ function updateJob($post, $id)
     );
 
     $parameters = [
-        "id" => $id,
+        "id" => $post["id"],
         "name" => $post["name"],
         "description" => $post["description"],
         "status" => $post["status"],

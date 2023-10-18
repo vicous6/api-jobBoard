@@ -1,6 +1,6 @@
 <?php
 
-
+// LEFT JOIN enterprise ON job.enterprise_id = enterprise.id 
 function getAllJobs()
 {
     $info = getDatabaseInfo();

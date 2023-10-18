@@ -22,11 +22,11 @@ function registerValidation($post)
 
         // if (
         //     strlen($post["username"]) > 30 ||
-        //     strlen($post["password"]) > 30 ||
+        //     strlen($post["password"]) > 50 ||
         //     strlen($post["first_name"]) > 30 ||
         //     strlen($post["last_name"]) > 30 ||
         //     strlen($post["phone"]) > 10 ||
-        //     strlen($post["email"]) > 30
+        //     strlen($post["email"]) > 50
         // ) {
         //     return false;
         // }

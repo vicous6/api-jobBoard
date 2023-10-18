@@ -1,6 +1,6 @@
 <?php
 
-function updateEnterprise($post, $id)
+function updateEnterprise($post)
 {
     $info = getDatabaseInfo();
     $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
@@ -15,7 +15,7 @@ function updateEnterprise($post, $id)
     );
 
     $parameters = [
-        "id" => $id,
+        "id" => $post["id"],
         "name" => $post["name"],
         "description" => $post["description"],
         "status" => $post["status"],

@@ -1,7 +1,7 @@
 <?php
 
 
-function updateUser($post, $id)
+function updateUser($post)
 {
     $info = getDatabaseInfo();
     $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
@@ -20,9 +20,8 @@ function updateUser($post, $id)
     );
 
     $parameters = [
-        "id" => $id,
+        "id" => $post["id"],
         "username" => $post["username"],
-
         "email" => $post["email"],
         "first_name" => $post["first_name"],
         "last_name" => $post["last_name"],

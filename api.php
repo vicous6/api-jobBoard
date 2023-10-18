@@ -49,10 +49,10 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
         if (isset($URL[0]) && $URL[0] == "enterprises") {
             echo getAllEnterprises();
         } else if (isset($URL[0]) && $URL[0] == "updateUser") {
-            echo updateUser($_POST, $user[0]->id);
+            echo updateUser($_POST);
         } else
             if (isset($URL[0]) && $URL[0] == "updateEnterprise") {
-                echo updateUser($_POST, $user[0]->id);
+                echo updateEnterprise($_POST);
             } else
                 if (isset($URL[0]) && $URL[0] == "users") {
                     echo getAllUsers();
@@ -61,7 +61,7 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
                         echo getUserById($URL[1]);
                     } else
                         if (isset($URL[0]) && $URL[0] == "deleteUser" && isset($URL[1])) {
-                            echo "rzfe";
+
                             echo deleteUserById($URL[1]);
                         } else
                             if (isset($URL[0]) && $URL[0] == "enterprise" && isset($URL[1])) {
@@ -110,7 +110,7 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
                                                                         echo createApplyList($_POST, $user[0]->id);
                                                                     } else
                                                                         if (isset($URL[0]) && $URL[0] == "modifyJob") {
-                                                                            echo updateJob($_POST, $user[0]->id);
+                                                                            echo updateJob($_POST);
                                                                         } else {
                                                                             echo json_encode("not exist");
                                                                         }

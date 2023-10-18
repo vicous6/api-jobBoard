@@ -16,7 +16,7 @@ function deleteUserById($id)
         $count = $query->rowCount();
         if ($count == 1) {
 
-            return json_encode("suppression effectué");
+            return json_encode("suppression effectue");
         } else {
             return json_encode("rien ici");
         }
