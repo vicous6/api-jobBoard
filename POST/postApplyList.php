@@ -4,7 +4,7 @@
 function createApplyList($post, $id)
 {
     date_default_timezone_set('UTC');
-    var_dump($post);
+    // var_dump($post);
     $info = getDatabaseInfo();
     $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
 
