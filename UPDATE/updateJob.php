@@ -1,6 +1,6 @@
 <?php
 
-function updateJob($post)
+function updateJob($post, $id)
 {
     $info = getDatabaseInfo();
     $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
@@ -20,7 +20,7 @@ function updateJob($post)
     );
 
     $parameters = [
-        "id" => $post["id"],
+        "id" => $id,
         "name" => $post["name"],
         "description" => $post["description"],
         "status" => $post["status"],
@@ -36,10 +36,10 @@ function updateJob($post)
     try {
 
         $query->execute($parameters);
-        echo "ca marche";
+        return json_encode("ca marche");
 
     } catch (Exception $e) {
         // var_dump($e);
-        echo "raté ca marche pas";
+        return json_encode("raté ca marche pas");
     }
 }

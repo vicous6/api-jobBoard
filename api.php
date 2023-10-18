@@ -49,10 +49,10 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
         if (isset($URL[0]) && $URL[0] == "enterprises") {
             echo getAllEnterprises();
         } else if (isset($URL[0]) && $URL[0] == "updateUser") {
-            echo updateUser($_POST);
+            echo updateUser($_POST, $user[0]->id);
         } else
             if (isset($URL[0]) && $URL[0] == "updateEnterprise") {
-                echo updateUser($_POST);
+                echo updateUser($_POST, $user[0]->id);
             } else
                 if (isset($URL[0]) && $URL[0] == "users") {
                     echo getAllUsers();
@@ -110,7 +110,7 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
                                                                         echo createApplyList($_POST, $user[0]->id);
                                                                     } else
                                                                         if (isset($URL[0]) && $URL[0] == "modifyJob") {
-                                                                            echo updateJob($_POST);
+                                                                            echo updateJob($_POST, $user[0]->id);
                                                                         } else {
                                                                             echo json_encode("not exist");
                                                                         }

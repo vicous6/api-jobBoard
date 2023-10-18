@@ -1,7 +1,7 @@
 <?php
 
 
-function updateUser($post)
+function updateUser($post, $id)
 {
     $info = getDatabaseInfo();
     $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
@@ -9,25 +9,25 @@ function updateUser($post)
     $query = $dbh->prepare("UPDATE 
     user SET 
     username=:username,
-    -- role=:role,
+    
     email=:email,
     first_name=:first_name,
     last_name=:last_name,
     phone=:phone,
-    -- enterprise_id=:enterprise_id,
+   
 
     WHERE id=:id"
     );
 
     $parameters = [
-        "id" => $post["id"],
+        "id" => $id,
         "username" => $post["username"],
-        // "role" => $post["role"],
+
         "email" => $post["email"],
         "first_name" => $post["first_name"],
         "last_name" => $post["last_name"],
         "phone" => $post["phone"],
-        // "enterprise_id" => $post["enterprise_id"],
+
 
     ];
 

@@ -15,7 +15,6 @@ function createApplyList($post, $id)
     $parameters = [
         "job_id" => $post["job_id"],
         "user_id" => $id,
-        "message" => $post["message"],
         "date" => date('m/d/Y h:i:s a', time())
     ];
 
