@@ -32,10 +32,10 @@ function updateUser($post)
 
         $query->execute($parameters);
 
-        echo json_encode("ca marche");
+        return json_encode("ca marche");
 
     } catch (Exception $e) {
         // var_dump($e);
-        echo json_encode("raté ca marche pas");
+        return json_encode("raté ca marche pas");
     }
 }
