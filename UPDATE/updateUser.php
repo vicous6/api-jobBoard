@@ -3,7 +3,7 @@
 
 function updateUser($post)
 {
-    var_dump($post);
+
     $info = getDatabaseInfo();
     $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
 
@@ -32,6 +32,7 @@ function updateUser($post)
     try {
 
         $query->execute($parameters);
+
         echo json_encode("ca marche");
 
     } catch (Exception $e) {
