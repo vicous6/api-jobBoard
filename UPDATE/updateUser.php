@@ -3,9 +3,9 @@
 
 function updateUser($post)
 {
-    $post = file_get_contents("php://input");
-    var_dump($post);
-    var_dump(json_decode($post));
+    $post = json_decode(file_get_contents("php://input"));
+    // var_dump($post);
+    // var_dump(json_decode($post));
     $info = getDatabaseInfo();
     $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
 
@@ -20,12 +20,12 @@ function updateUser($post)
     );
 
     $parameters = [
-        "id" => $post["id"],
-        "username" => $post["username"],
-        "email" => $post["email"],
-        "first_name" => $post["first_name"],
-        "last_name" => $post["last_name"],
-        "phone" => $post["phone"],
+        "id" => $post->id,
+        "username" => $post->username,
+        "email" => $post->email,
+        "first_name" => $post->first_name,
+        "last_name" => $post->last_name,
+        "phone" => $post->phone,
 
 
     ];
