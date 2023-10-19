@@ -36,7 +36,7 @@ function updateUser($post)
         echo "ca marche";
 
     } catch (Exception $e) {
-
+        var_dump($e);
         echo "raté ca marche pas";
     }
 }
