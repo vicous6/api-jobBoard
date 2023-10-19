@@ -21,9 +21,9 @@ function createApplyList($post, $id)
     try {
 
         $query->execute($parameters);
-        echo true;
+        echo json_encode(true);
     } catch (Exception $e) {
         // var_dump($e);
-        echo false;
+        echo json_encode(false);
     }
 }
