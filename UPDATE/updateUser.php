@@ -3,6 +3,7 @@
 
 function updateUser($post)
 {
+    var_dump($post);
     $info = getDatabaseInfo();
     $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
 
@@ -34,7 +35,7 @@ function updateUser($post)
         echo json_encode("ca marche");
 
     } catch (Exception $e) {
-        var_dump($e);
+        // var_dump($e);
         echo json_encode("raté ca marche pas");
     }
 }
