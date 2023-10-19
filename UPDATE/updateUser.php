@@ -13,10 +13,8 @@ function updateUser($post)
     email=:email,
     first_name=:first_name,
     last_name=:last_name,
-    phone=:phone,
-   
-
-    WHERE id=:id"
+    phone=:phone
+       WHERE id=:id"
     );
 
     $parameters = [
