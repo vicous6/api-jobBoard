@@ -38,7 +38,7 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
                         echo getJobById($URL[1]);
                     } else
                         if (isset($URL[0]) && $URL[0] == "createApplyList") {
-                            echo createApplyList($_POST, $user[0]->id);
+                            echo createApplyList($_POST, $user[0]);
                         } else
                             if (isset($URL[0]) && $URL[0] == "applyListByUserId") {
                                 echo getApplyListsByUserId($user[0]->id);
@@ -107,7 +107,7 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
                                                                     echo createJob($_POST);
                                                                 } else
                                                                     if (isset($URL[0]) && $URL[0] == "createApplyList") {
-                                                                        echo createApplyList($_POST, $user[0]->id);
+                                                                        echo createApplyList($_POST, $user[0]);
                                                                     } else
                                                                         if (isset($URL[0]) && $URL[0] == "modifyJob") {
                                                                             echo updateJob($_POST);
@@ -119,7 +119,7 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
 
     } else if ($role == "promoter") {
         if (isset($URL[0]) && $URL[0] == "createApplyList") {
-            echo createApplyList($_POST, $user[0]->$id);
+            echo createApplyList($_POST, $user[0]);
         } else
             if (isset($URL[0]) && $URL[0] == "applyListByJobId" && isset($URL[1])) {
                 echo getApplyListsByUserId($URL[1]);

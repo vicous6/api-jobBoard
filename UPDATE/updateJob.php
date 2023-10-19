@@ -9,12 +9,12 @@ function updateJob($post)
     job SET 
     name=:name,
     description=:description,
-    status=:status,
-    workplace=:workplace,
-    wages=:wages,
+    -- status=:status,
+    -- workplace=:workplace,
+    -- wages=:wages,
     working_time=:working_time,
     location=:location,
-    short_description=:short_description,
+    -- short_description=:short_description,
     enterprise_id=:enterprise_id
     WHERE id=:id"
     );
@@ -23,12 +23,12 @@ function updateJob($post)
         "id" => $post["id"],
         "name" => $post["name"],
         "description" => $post["description"],
-        "status" => $post["status"],
-        "workplace" => $post["workplace"],
-        "wages" => $post["wages"],
+        // "status" => $post["status"],
+        // "workplace" => $post["workplace"],
+        // "wages" => $post["wages"],
         "working_time" => $post["working_time"],
         "location" => $post["location"],
-        "short_description" => $post["short_description"],
+        // "short_description" => $post["short_description"],
         "enterprise_id" => $post["enterprise_id"]
 
     ];

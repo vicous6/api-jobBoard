@@ -1,8 +1,10 @@
 <?php
 
 
-function createApplyList($post, $id)
+function createApplyList($post, $user)
 {
+
+    $message = "Hello i'm $user->name and i'm very interested in the job " . $post["job_id"];
     date_default_timezone_set('UTC');
     // var_dump($post);
     $info = getDatabaseInfo();
@@ -14,8 +16,8 @@ function createApplyList($post, $id)
 
     $parameters = [
         "job_id" => $post["job_id"],
-        "user_id" => $id,
-        "message" => $post["message"],
+        "user_id" => $user->id,
+        "message" => $message,
         "date" => date('Y-m-d')
     ];
 
@@ -24,7 +26,7 @@ function createApplyList($post, $id)
         $query->execute($parameters);
         echo json_encode(true);
     } catch (Exception $e) {
-        var_dump($e);
+        // var_dump($e);
         echo json_encode(false);
     }
 }
