@@ -3,7 +3,7 @@
 
 function updateUser($post)
 {
-    var_dump(file_get_contents("php://input"));
+    $post = file_get_contents("php://input");
     $info = getDatabaseInfo();
     $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
 
