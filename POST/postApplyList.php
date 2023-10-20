@@ -3,8 +3,8 @@
 
 function createApplyList($id, $user)
 {
-    var_dump($id);
-    var_dump($user);
+    // var_dump($id);
+    // var_dump($user);
     $message = "Hello i'm Mr/Mrs" . $user->last_name . "and i'm very interested in the job " . strval($id);
     date_default_timezone_set('UTC');
     // var_dump($post);
