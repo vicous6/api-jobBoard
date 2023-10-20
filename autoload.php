@@ -47,7 +47,7 @@ require "UPDATE/updateToken.php";
 require "GET/getAllApplyListsByUserId.php";
 
 require "DELETE/deleteMyUser.php";
-
+require "GET/getMyApplyListbyUserId.php";
 require "GET/getUserByToken.php";
 require "authentication/validation/loginValidation.php";
 require "authentication/validation/registerValidation.php";
