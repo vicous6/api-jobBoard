@@ -2,6 +2,7 @@
 
 function updateEnterprise($post)
 {
+    $post = json_decode(file_get_contents("php://input"));
     $info = getDatabaseInfo();
     $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
 
@@ -15,10 +16,10 @@ function updateEnterprise($post)
     );
 
     $parameters = [
-        "id" => $post["id"],
-        "name" => $post["name"],
-        "description" => $post["description"],
-        "status" => $post["status"],
+        "id" => $post->id,
+        "name" => $post->name,
+        "description" => $post->description,
+        "status" => $post->status,
     ];
 
     try {
