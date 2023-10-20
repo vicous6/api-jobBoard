@@ -9,7 +9,10 @@ function getMyApplyListsByUserId($id)
     $query = $dbh->prepare("SELECT * FROM applyList 
     INNER JOIN job ON applyList.job_id = job.id
     WHERE applyList.user_id = :id");
-    $parameters = [];
+    $parameters = [
+
+        "id" => $id
+    ];
 
     $query->execute($parameters);
     $user = $query->fetchAll(PDO::FETCH_ASSOC);
