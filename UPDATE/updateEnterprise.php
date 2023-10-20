@@ -2,11 +2,11 @@
 
 function updateEnterprise($post)
 {
-    var_dump($post);
+    // var_dump($psost);
     $post = json_decode(file_get_contents("php://input"));
     $info = getDatabaseInfo();
     $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
-    var_dump($post);
+    // var_dump($post);
     $query = $dbh->prepare("UPDATE 
     enterprise SET 
     name=:name,
@@ -28,7 +28,7 @@ function updateEnterprise($post)
         return json_encode("ca marche");
 
     } catch (Exception $e) {
-        var_dump($e);
+        // var_dump($e);
         return json_encode("raté ca marche pas");
     }
 }
