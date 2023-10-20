@@ -22,10 +22,10 @@ function createJob($post)
     try {
 
         $query->execute($parameters);
-        echo "ca marche";
+        echo json_encode("ca marche");
 
     } catch (Exception $e) {
         // var_dump($e);
-        echo "raté ca marche pas";
+        echo json_encode("raté ca marche pas");
     }
 }
