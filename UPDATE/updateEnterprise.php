@@ -11,7 +11,7 @@ function updateEnterprise($post)
     job SET 
     name=:name,
     description=:description,
-    sector=:sector
+    sector=:'sector'
    
     WHERE id=:id"
     );
