@@ -2,11 +2,11 @@
 
 function updateEnterprise($post)
 {
-    // var_dump($post);
-    // $post = json_decode(file_get_contents("php://input"));
+    var_dump($post);
+    $post = json_decode(file_get_contents("php://input"));
     $info = getDatabaseInfo();
     $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
-    // var_dump($post);
+    var_dump($post);
     $query = $dbh->prepare("UPDATE 
     job SET 
     name=:name,
@@ -17,10 +17,10 @@ function updateEnterprise($post)
     );
 
     $parameters = [
-        "id" => $post["id"],
-        "name" => $post["name"],
-        "description" => $post["description"],
-        "sector" => $post["sector"],
+        "id" => $post->id,
+        "name" => $post->name,
+        "description" => $post->description,
+        "sector" => $post->sector,
     ];
 
     try {
@@ -29,7 +29,7 @@ function updateEnterprise($post)
         return json_encode("ca marche");
 
     } catch (Exception $e) {
-        var_dump($e);
+        // var_dump($e);
         return json_encode("raté ca marche pas");
     }
 }
