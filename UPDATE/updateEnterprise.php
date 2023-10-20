@@ -19,7 +19,7 @@ function updateEnterprise($post)
         "id" => $post->id,
         "name" => $post->name,
         "description" => $post->description,
-        "status" => $post->status,
+        "sector" => $post->sector,
     ];
 
     try {
