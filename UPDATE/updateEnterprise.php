@@ -12,7 +12,6 @@ function updateEnterprise($post)
     name=:name,
     description=:description,
     sector=:sector
-   
     WHERE id=:id"
     );
 
