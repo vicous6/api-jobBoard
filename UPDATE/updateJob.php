@@ -2,6 +2,10 @@
 
 function updateJob($post)
 {
+
+    $post = json_decode(file_get_contents("php://input"));
+
+
     $info = getDatabaseInfo();
     $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
 
@@ -20,17 +24,16 @@ function updateJob($post)
     );
 
     $parameters = [
-        "id" => $post["id"],
-        "name" => $post["name"],
-        "description" => $post["description"],
+        "id" => $post->id,
+        "name" => $post->name,
+        "description" => $post->description,
         // "status" => $post["status"],
         // "workplace" => $post["workplace"],
         // "wages" => $post["wages"],
-        "working_time" => $post["working_time"],
-        "location" => $post["location"],
+        "working_time" => $post->working_time,
+        "location" => $post->location,
         // "short_description" => $post["short_description"],
-        "enterprise_id" => $post["enterprise_id"]
-
+        "enterprise_id" => $post->enterprise_id
     ];
 
     try {
