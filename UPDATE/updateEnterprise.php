@@ -29,7 +29,7 @@ function updateEnterprise($post)
         return json_encode("ca marche");
 
     } catch (Exception $e) {
-        // var_dump($e);
+        var_dump($e);
         return json_encode("raté ca marche pas");
     }
 }
