@@ -2,6 +2,7 @@
 
 function updateEnterprise($post)
 {
+    var_dump($post);
     $post = json_decode(file_get_contents("php://input"));
     $info = getDatabaseInfo();
     $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
