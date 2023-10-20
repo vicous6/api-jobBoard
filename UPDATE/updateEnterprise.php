@@ -8,7 +8,7 @@ function updateEnterprise($post)
     $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
     var_dump($post);
     $query = $dbh->prepare("UPDATE 
-    job SET 
+    enterprise SET 
     name=:name,
     description=:description,
     sector=:sector
