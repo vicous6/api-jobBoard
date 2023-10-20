@@ -6,7 +6,9 @@ function getMyApplyListsByUserId($id)
 
     $info = getDatabaseInfo();
     $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
-    $query = $dbh->prepare("SELECT * FROM applyList WHERE user_id=$id  INNER JOIN job ON applyList.job_id = job.id");
+    $query = $dbh->prepare("SELECT * FROM applyList 
+    INNER JOIN job ON applyList.job_id = job.id
+    WHERE applyList.user_id = :id");
     $parameters = [];
 
     $query->execute($parameters);
