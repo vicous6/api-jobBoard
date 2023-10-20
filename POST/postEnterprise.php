@@ -3,7 +3,7 @@
 
 function createEnterprise($post)
 {
-    var_dump($post);
+    // var_dump($post);
     $info = getDatabaseInfo();
     $dbh = new PDO('mysql:host=' . $info["host"] . ';dbname=' . $info["db_name"], $info["user"], $info["password"]);
 
