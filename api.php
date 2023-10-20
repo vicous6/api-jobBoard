@@ -1,6 +1,7 @@
 <?php
 require "autoload.php";
-
+header("Access-Control-Allow-Origin:*");
+header("Access-Control-Allow-Headers:*");
 $URL = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $URL = explode("/", $URL);
 $URL = array_slice($URL, 5);
@@ -18,7 +19,7 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
 
     $role = whatRoleForThatToken($_POST["token"]);
     $user = json_decode(getUserByToken($_POST["token"]));
-
+    // var_dump($role);
     // roles possible [admin,user,promoter]
 
     // var_dump($role);
@@ -38,7 +39,7 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
                         echo getJobById($URL[1]);
                     } else
                         if (isset($URL[0]) && $URL[0] == "createApplyList") {
-                            echo createApplyList($_POST, $user[0]);
+                            echo createApplyList($_POST, $user[0]->id);
                         } else
                             if (isset($URL[0]) && $URL[0] == "applyListByUserId") {
                                 echo getApplyListsByUserId($user[0]->id);

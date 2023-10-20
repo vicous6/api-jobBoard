@@ -2,7 +2,7 @@
 
 function deleteEnterpriseById($id)
 {
-    var_dump($id);
+    // var_dump($id);
     // delete tout les users associée a l'entreprise
     try {
 
