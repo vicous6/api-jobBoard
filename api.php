@@ -192,7 +192,7 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
             $_POST["last_name"] = clean($_POST["last_name"]);
             $_POST["phone"] = clean($_POST["phone"]);
             $_POST["email"] = clean($_POST["email"]);
-            // var_dump("")
+            var_dump($_POST);
             // if (
             //     strlen($_POST["username"]) > 30 ||
             //     strlen($_POST["password"]) > 50 ||
