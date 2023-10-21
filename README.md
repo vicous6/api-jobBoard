@@ -33,7 +33,9 @@ Routes le L'API
   "/deleteMyUser"    
   "/deleteUser/{id}"   
   "/deleteEnterprise/{id}"    
-  "/deleteJobById/{id}"    
+  "/deleteJobById/{id}"  
+  ![image](https://github.com/vicous6/api-jobBoard/assets/92452177/2ba75825-e34e-4da2-9490-279277d8cf03)
+
   
 ## PUT
   "/updateUser"    
