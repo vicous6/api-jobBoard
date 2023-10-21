@@ -13,12 +13,12 @@ function registerValidation($post)
         isset($post["email"]) && $post["email"] != null
 
     ) {
-        $post["username"] = clean($post["username"]);
-        $post["password"] = clean($post["password"]);
-        $post["first_name"] = clean($post["first_name"]);
-        $post["last_name"] = clean($post["last_name"]);
-        $post["phone"] = clean($post["phone"]);
-        $post["email"] = clean($post["email"]);
+        // $post["username"] = clean($post["username"]);
+        // $post["password"] = clean($post["password"]);
+        // $post["first_name"] = clean($post["first_name"]);
+        // $post["last_name"] = clean($post["last_name"]);
+        // $post["phone"] = clean($post["phone"]);
+        // $post["email"] = clean($post["email"]);
 
         if (
             strlen($post["username"]) > 30 ||

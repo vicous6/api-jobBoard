@@ -185,20 +185,20 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
         // si le form est rempli
         if (registerValidation($_POST)) {
             // si le form est valide
-            $post["username"] = clean($post["username"]);
-            $post["password"] = clean($post["password"]);
-            $post["first_name"] = clean($post["first_name"]);
-            $post["last_name"] = clean($post["last_name"]);
-            $post["phone"] = clean($post["phone"]);
-            $post["email"] = clean($post["email"]);
+            $_POST["username"] = clean($__POST["username"]);
+            $_POST["password"] = clean($__POST["password"]);
+            $_POST["first_name"] = clean($__POST["first_name"]);
+            $_POST["last_name"] = clean($__POST["last_name"]);
+            $_POST["phone"] = clean($__POST["phone"]);
+            $_POST["email"] = clean($__POST["email"]);
 
             if (
-                strlen($post["username"]) > 30 ||
-                strlen($post["password"]) > 50 ||
-                strlen($post["first_name"]) > 30 ||
-                strlen($post["last_name"]) > 30 ||
-                strlen($post["phone"]) > 10 ||
-                strlen($post["email"]) > 50
+                strlen($_POST["username"]) > 30 ||
+                strlen($_POST["password"]) > 50 ||
+                strlen($_POST["first_name"]) > 30 ||
+                strlen($_POST["last_name"]) > 30 ||
+                strlen($_POST["phone"]) > 10 ||
+                strlen($_POST["email"]) > 50
             ) {
                 return json_encode(false);
             } else {
