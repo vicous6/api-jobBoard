@@ -184,7 +184,8 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
 
         // si le form est rempli
         if (registerValidation($_POST)) {
-            // si le form est valide
+            // si le form est valideù
+            var_dump($_POST);
             $_POST["username"] = clean($__POST["username"]);
             $_POST["password"] = clean($__POST["password"]);
             $_POST["first_name"] = clean($__POST["first_name"]);
