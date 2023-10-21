@@ -41,4 +41,10 @@ Routes le L'API
   "/updateUser"    
   "/updateEnterprise"    
   "/modifyJob"    
-                                                                                  
+
+### Security Features
+
+ token authentication
+ login form validation
+ register form validation
+ 3 roles: [user,admin,promoter]
