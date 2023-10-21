@@ -13,30 +13,30 @@
 
 Routes le L'API
 ## GET
-  "/getMyApplyList"  
-  "/enterprises"  
-  "/users"  
-  "/user/{id}"  
-  "/enterprise/{id}"  
-  "/jobs"  
-  "/job/{id}"  
-  "/applyListByJobId/{id}"   
-  "/applyListByUserId"  
+  "/getMyApplyList"    
+  "/enterprises"    
+  "/users"    
+  "/user/{id}"    
+  "/enterprise/{id}"      
+  "/jobs"    
+  "/job/{id}"    
+  "/applyListByJobId/{id}"     
+  "/applyListByUserId"    
   
 ## POST
   "/createApplyList/{job_id}"                                                              
-  "/createUser"  
-  "/createEnterprise"  
-  "/createJob"  
+  "/createUser"       
+  "/createEnterprise"       
+  "/createJob"      
   
 ## DELETE
-  "/deleteMyUser"  
-  "/deleteUser/{id}"  
-  "/deleteEnterprise/{id}"  
-  "/deleteJobById/{id}"  
+  "/deleteMyUser"    
+  "/deleteUser/{id}"   
+  "/deleteEnterprise/{id}"    
+  "/deleteJobById/{id}"    
   
 ## PUT
-  "/updateUser"  
-  "/updateEnterprise"  
-  "/modifyJob"  
+  "/updateUser"    
+  "/updateEnterprise"    
+  "/modifyJob"    
                                                                                   
