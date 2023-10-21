@@ -44,8 +44,10 @@ Routes le L'API
   "/modifyJob"    
 
 # Security Features
-
+ token generation    
  token authentication   
- login form validation   
- register form validation   
+ login form validation    
+ register form validation    
+ PDO Sql query (SQLI)    
+ htmlSpecialChars(XSS)   
  3 roles: [user,admin,promoter]   
