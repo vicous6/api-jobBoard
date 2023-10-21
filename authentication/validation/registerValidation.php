@@ -13,23 +13,23 @@ function registerValidation($post)
         isset($post["email"]) && $post["email"] != null
 
     ) {
-        // $post["username"] = clean($post["username"]);
-        // $post["password"] = clean($post["password"]);
-        // $post["first_name"] = clean($post["first_name"]);
-        // $post["last_name"] = clean($post["last_name"]);
-        // $post["phone"] = clean($post["phone"]);
-        // $post["email"] = clean($post["email"]);
+        $post["username"] = clean($post["username"]);
+        $post["password"] = clean($post["password"]);
+        $post["first_name"] = clean($post["first_name"]);
+        $post["last_name"] = clean($post["last_name"]);
+        $post["phone"] = clean($post["phone"]);
+        $post["email"] = clean($post["email"]);
 
-        // if (
-        //     strlen($post["username"]) > 30 ||
-        //     strlen($post["password"]) > 50 ||
-        //     strlen($post["first_name"]) > 30 ||
-        //     strlen($post["last_name"]) > 30 ||
-        //     strlen($post["phone"]) > 10 ||
-        //     strlen($post["email"]) > 50
-        // ) {
-        //     return false;
-        // }
+        if (
+            strlen($post["username"]) > 30 ||
+            strlen($post["password"]) > 50 ||
+            strlen($post["first_name"]) > 30 ||
+            strlen($post["last_name"]) > 30 ||
+            strlen($post["phone"]) > 10 ||
+            strlen($post["email"]) > 50
+        ) {
+            return false;
+        }
 
 
 
