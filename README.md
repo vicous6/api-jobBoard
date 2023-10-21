@@ -16,18 +16,18 @@ Routes le L'API
   "/getMyApplyList" 
   "/enterprises" 
   "/users" 
-  "/user/{id}"
+  "/user/{id}" 
   "/enterprise/{id}" 
-  "/jobs"
-  "/job/{id}"
-  "/applyListByJobId/{id}"
-  "/applyListByUserId"
+  "/jobs" 
+  "/job/{id}" 
+  "/applyListByJobId/{id}" 
+  "/applyListByUserId" 
   
 ## POST
   "/createApplyList/{job_id}"                                                                         
-  "/createUser"
-  "/createEnterprise"
-  "/createJob"
+  "/createUser" 
+  "/createEnterprise" 
+  "/createJob" 
   
 ## DELETE
   "/deleteMyUser" 
