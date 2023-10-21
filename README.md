@@ -45,7 +45,7 @@ Routes le L'API
 
 ### Security Features
 
- token authentication
- login form validation
- register form validation
- 3 roles: [user,admin,promoter]
+ # token authentication   
+ # login form validation   
+ # register form validation   
+ # 3 roles: [user,admin,promoter]   
