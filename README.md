@@ -10,24 +10,33 @@
 ### Organisation du repo
 ![image](https://github.com/vicous6/api-jobBoard/assets/92452177/a7f6ce2b-5b27-4748-a2d7-e345e6e7a31f)
 
-  "getMyApplyList"     
-  "/deleteMyUser" 
+
+Routes le L'API
+## GET
+  "/getMyApplyList" 
   "/enterprises" 
-  "/updateUser"  
-  "/updateEnterprise" 
   "/users" 
   "/user/{id}"
-  "/deleteUser/{id}"
-  "/enterprise/{id}"
-  "/deleteEnterprise/{id}" 
+  "/enterprise/{id}" 
   "/jobs"
   "/job/{id}"
-  "/deleteJobById/{id}"
   "/applyListByJobId/{id}"
   "/applyListByUserId"
+  
+## POST
+  "/createApplyList/{job_id}"                                                                         
   "/createUser"
   "/createEnterprise"
   "/createJob"
-  "/createApplyList/{job_id}"                                                                         
+  
+## DELETE
+  "/deleteMyUser" 
+  "/deleteUser/{id}"
+  "/deleteEnterprise/{id}" 
+  "/deleteJobById/{id}" 
+  
+## PUT
+  "/updateUser"  
+  "/updateEnterprise"
   "/modifyJob"
                                                                                   
