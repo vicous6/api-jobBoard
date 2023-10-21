@@ -191,20 +191,20 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
             // $_POST["last_name"] = clean($__POST["last_name"]);
             // $_POST["phone"] = clean($__POST["phone"]);
             // $_POST["email"] = clean($__POST["email"]);
+            // var_dump("")
+            // if (
+            //     strlen($_POST["username"]) > 30 ||
+            //     strlen($_POST["password"]) > 50 ||
+            //     strlen($_POST["first_name"]) > 30 ||
+            //     strlen($_POST["last_name"]) > 30 ||
+            //     strlen($_POST["phone"]) > 10 ||
+            //     strlen($_POST["email"]) > 50
+            // ) {
+            //     return json_encode(false);
+            // } else {
 
-            if (
-                strlen($_POST["username"]) > 30 ||
-                strlen($_POST["password"]) > 50 ||
-                strlen($_POST["first_name"]) > 30 ||
-                strlen($_POST["last_name"]) > 30 ||
-                strlen($_POST["phone"]) > 10 ||
-                strlen($_POST["email"]) > 50
-            ) {
-                return json_encode(false);
-            } else {
-
-                echo json_encode(createUser($_POST));
-            }
+            echo json_encode(createUser($_POST));
+            // }
 
         } else {
             // si le form contient un problème
