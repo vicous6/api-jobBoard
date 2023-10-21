@@ -13,6 +13,7 @@ function registerValidation($post)
         isset($post["email"]) && $post["email"] != null
 
     ) {
+        // var_dump
         // $post["username"] = clean($post["username"]);
         // $post["password"] = clean($post["password"]);
         // $post["first_name"] = clean($post["first_name"]);
