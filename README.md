@@ -1,3 +1,3 @@
 # api-jobBoard
 
-![image](https://github.com/vicous6/api-jobBoard/assets/92452177/ef1f40e1-6521-4f56-9c11-7b41adce98ed)
+![image](https://github.com/vicous6/api-jobBoard/assets/92452177/4aa33b96-981a-4cf4-86b8-507ebe772ca1)
