@@ -130,40 +130,43 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
 
 
     } else if ($role == "promoter") {
-        if (isset($URL[0]) && $URL[0] == "getMyApplyList") {
-            echo getMyApplyListsByUserId($user[0]->id);
+        if (isset($URL[0]) && $URL[0] == "getJobByEnterpriseId") {
+            echo getJobsByEnterpriseId($user[0]->enterprise_id);
         } else
-            if (isset($URL[0]) && $URL[0] == "deleteMyUser") {
-                echo deleteMyUser($user[0]->id);
+            if (isset($URL[0]) && $URL[0] == "getMyApplyList") {
+                echo getMyApplyListsByUserId($user[0]->id);
             } else
-                if (isset($URL[0]) && $URL[0] == "createApplyList" && isset($URL[1])) {
-                    echo createApplyList($URL[1], $user[0]);
+                if (isset($URL[0]) && $URL[0] == "deleteMyUser") {
+                    echo deleteMyUser($user[0]->id);
                 } else
-                    if (isset($URL[0]) && $URL[0] == "applyListByJobId" && isset($URL[1])) {
-                        echo getApplyListsByUserId($URL[1]);
+                    if (isset($URL[0]) && $URL[0] == "createApplyList" && isset($URL[1])) {
+                        echo createApplyList($URL[1], $user[0]);
                     } else
-                        if (isset($URL[0]) && $URL[0] == "enterprises") {
-                            echo getAllEnterprises();
+                        if (isset($URL[0]) && $URL[0] == "applyListByJobId" && isset($URL[1])) {
+                            echo getApplyListsByUserId($URL[1]);
                         } else
-                            if (isset($URL[0]) && $URL[0] == "enterprise" && isset($URL[1])) {
-                                echo getEnterpriseById($URL[1]);
+                            if (isset($URL[0]) && $URL[0] == "enterprises") {
+                                echo getAllEnterprises();
                             } else
-                                if (isset($URL[0]) && $URL[0] == "jobs") {
-                                    echo getAllJobs();
+                                if (isset($URL[0]) && $URL[0] == "enterprise" && isset($URL[1])) {
+                                    echo getEnterpriseById($URL[1]);
                                 } else
-                                    if (isset($URL[0]) && $URL[0] == "job" && isset($URL[1])) {
-                                        echo getJobById($URL[1]);
+                                    if (isset($URL[0]) && $URL[0] == "jobs") {
+                                        echo getAllJobs();
                                     } else
-                                        // pouvoir suplementaire du promoteur
-                                        if (isset($URL[0]) && $URL[0] == "applyListByUserId") {
-                                            echo getApplyListsByUserId($user[0]->id);
+                                        if (isset($URL[0]) && $URL[0] == "job" && isset($URL[1])) {
+                                            echo getJobById($URL[1]);
                                         } else
+                                            // pouvoir suplementaire du promoteur
+                                            if (isset($URL[0]) && $URL[0] == "applyListByUserId") {
+                                                echo getApplyListsByUserId($user[0]->id);
+                                            } else
 
-                                            if (isset($URL[0]) && $URL[0] == "createJob") {
-                                                echo createJob($_POST);
-                                            } else {
-                                                echo json_encode("not exist or not authorize");
-                                            }
+                                                if (isset($URL[0]) && $URL[0] == "createJob") {
+                                                    echo createJob($_POST);
+                                                } else {
+                                                    echo json_encode("not exist or not authorize");
+                                                }
     }
 
 
