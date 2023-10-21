@@ -186,12 +186,12 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
         if (registerValidation($_POST)) {
             // si le form est valideù
             var_dump($_POST);
-            $_POST["username"] = clean($__POST["username"]);
-            $_POST["password"] = clean($__POST["password"]);
-            $_POST["first_name"] = clean($__POST["first_name"]);
-            $_POST["last_name"] = clean($__POST["last_name"]);
-            $_POST["phone"] = clean($__POST["phone"]);
-            $_POST["email"] = clean($__POST["email"]);
+            $_POST["username"] = clean($_POST["username"]);
+            $_POST["password"] = clean($_POST["password"]);
+            $_POST["first_name"] = clean($_POST["first_name"]);
+            $_POST["last_name"] = clean($_POST["last_name"]);
+            $_POST["phone"] = clean($_POST["phone"]);
+            $_POST["email"] = clean($_POST["email"]);
             // var_dump("")
             // if (
             //     strlen($_POST["username"]) > 30 ||
