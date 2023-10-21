@@ -185,27 +185,27 @@ if (isset($_POST["token"]) && isTokenValid($_POST["token"])) {
         // si le form est rempli
         if (registerValidation($_POST)) {
             // si le form est valideù
-            var_dump($_POST);
+            // var_dump($_POST);
             $_POST["username"] = clean($_POST["username"]);
             $_POST["password"] = clean($_POST["password"]);
             $_POST["first_name"] = clean($_POST["first_name"]);
             $_POST["last_name"] = clean($_POST["last_name"]);
             $_POST["phone"] = clean($_POST["phone"]);
             $_POST["email"] = clean($_POST["email"]);
-            var_dump($_POST);
-            // if (
-            //     strlen($_POST["username"]) > 30 ||
-            //     strlen($_POST["password"]) > 50 ||
-            //     strlen($_POST["first_name"]) > 30 ||
-            //     strlen($_POST["last_name"]) > 30 ||
-            //     strlen($_POST["phone"]) > 10 ||
-            //     strlen($_POST["email"]) > 50
-            // ) {
-            //     return json_encode(false);
-            // } else {
+            // var_dump($_POST);
+            if (
+                strlen($_POST["username"]) > 30 ||
+                strlen($_POST["password"]) > 50 ||
+                strlen($_POST["first_name"]) > 30 ||
+                strlen($_POST["last_name"]) > 30 ||
+                strlen($_POST["phone"]) > 10 ||
+                strlen($_POST["email"]) > 50
+            ) {
+                return json_encode(false);
+            } else {
 
-            echo json_encode(createUser($_POST));
-            // }
+                echo json_encode(createUser($_POST));
+            }
 
         } else {
             // si le form contient un problème
